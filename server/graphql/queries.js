@@ -1,19 +1,20 @@
+const SERVER_URL = 'http://localhost:9000';
 export const resolvers = {
     Query: {
         books: async () => {
-            const res = await fetch('http://localhost:9000/books');
+            const res = await fetch(`${SERVER_URL}/books?_expand=author`);
             return res.json();
         },
         authors: async () => {
-            const res = await fetch('http://localhost:9000/authors');
+            const res = await fetch(`${SERVER_URL}/authors?_embed=books`);
             return res.json();
         },
         book: async (patent, args) => {
-            const res = await fetch(`http://localhost:9000/books/${args.id}`);
+            const res = await fetch(`${SERVER_URL}/books/${args.id}?_expand=author`);
             return res.json();
         },
         author: async (parent, args) => {
-            const res = await fetch(`http://localhost:9000/authors/${args.id}`);
+            const res = await fetch(`${SERVER_URL}/authors/${args.id}?_embed=books`);
             return res.json();
         },
     }

@@ -4,6 +4,7 @@ type Book
     title: String!
     genre: String!
     publish_at: String!
+    author: Author!
 }
 
 type Author
@@ -11,6 +12,7 @@ type Author
     id: ID!
     title: String!
     age: Int!
+    books: [Book!]!
 }
 
 # Special Type
