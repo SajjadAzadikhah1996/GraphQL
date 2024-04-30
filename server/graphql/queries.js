@@ -21,5 +21,20 @@ export const resolvers = {
             const res = await fetch(`${SERVER_URL}/authors/${args.id}?_embed=books`);
             return res.json();
         },
+        hexColor: (parent, args) => {
+            let hex = '';
+            switch (args.name) {
+                case 'RED':
+                    hex= '#00ff00';
+                    break;
+                case 'GREEN':
+                    hex= '#ff0000';
+                    break;
+                case 'BLUE':
+                    hex= '#0000ff';
+                    break;
+            }
+            return hex;
+        }
     }
 };
