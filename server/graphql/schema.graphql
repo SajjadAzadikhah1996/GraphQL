@@ -1,3 +1,18 @@
+type Book
+{
+    id: ID
+    title: String
+    genre: String
+    publish_at: String
+}
+
+type Author
+{
+    id: ID
+    title: String
+    age: Int
+}
+
 type Query {
     hello: String
 }
