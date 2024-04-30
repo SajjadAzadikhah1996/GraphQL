@@ -59,5 +59,34 @@
       "authorId": 3,
       "publish_at": "2021-01-06T11:20:52.000000Z"
     }
+  ],
+  "developers": [
+    {
+      "id": 1,
+      "title": "Developer1",
+      "age": 45,
+      "skills": [
+        "HTML/CSS",
+        "Javascript"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Developer2",
+      "age": 27,
+      "skills": [
+        "React",
+        "Javascript"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Developer3",
+      "age": 34,
+      "skills": [
+        "React",
+        "NextJs"
+      ]
+    }
   ]
 }

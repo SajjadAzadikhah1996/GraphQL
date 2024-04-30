@@ -34,8 +34,6 @@ Accessible parameters:
 """
 type Author implements Human
 {
-    # If you don't enter id, title, age fields inside the author type, you will get an error.
-
     # Inherited fields.
     id: ID!
     title: String!
@@ -44,10 +42,18 @@ type Author implements Human
     books: [Book!]!
 }
 
+type Developer implements Human
+{
+    # Inherited fields.
+    id: ID!
+    title: String!
+    age: Int!
+    # Extra fields.
+    skills: [String!]!
+}
+
 """
 The `Color` is an `enum` type that represents a list of available values.
-Available colors:
-`RED` `GREEN` `BLUE`
 Accessible parameters:
 `name`
 """
@@ -57,6 +63,11 @@ enum Color{
     BLUE
 }
 
+"""
+The `SearchResult` is an `union` type that represents a list of possible types.
+"""
+union SearchResult = Author | Developer
+
 # Special Type
 type Query {
     authors: [Author!]!
@@ -64,4 +75,5 @@ type Query {
     books: [Book!]!
     book(id:ID!): Book
     hexColor(name: Color!): String
+    search(id: ID!): [SearchResult]
 }

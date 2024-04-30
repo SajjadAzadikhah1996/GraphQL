@@ -4,6 +4,17 @@ const SERVER_URL = 'http://localhost:9000';
 
 export const resolvers = {
     JalaliDate: JalaliDateScalar,
+    SearchResult: {
+        __resolveType(obj, contextValue, info) {
+            if (obj.title.startsWith('Author')) {
+                return 'Author';
+            }
+            if (obj.title.startsWith('Developer')) {
+                return 'Developer';
+            }
+            return null; // GraphQLError is thrown
+        },
+    },
     Query: {
         books: async () => {
             const res = await fetch(`${SERVER_URL}/books?_expand=author`);
@@ -25,16 +36,31 @@ export const resolvers = {
             let hex = '';
             switch (args.name) {
                 case 'RED':
-                    hex= '#00ff00';
+                    hex = '#00ff00';
                     break;
                 case 'GREEN':
-                    hex= '#ff0000';
+                    hex = '#ff0000';
                     break;
                 case 'BLUE':
-                    hex= '#0000ff';
+                    hex = '#0000ff';
                     break;
             }
             return hex;
+        },
+        search: async (parent, args) => {
+            const fetchAuthor = async () => {
+                const res = await fetch(`${SERVER_URL}/authors/${args.id}?_embed=books`);
+                if (res.status !== 200)
+                    return null;
+                return res.json();
+            };
+            const fetchDeveloper = async () => {
+                const res = await fetch(`${SERVER_URL}/developers/${args.id}`);
+                if (res.status !== 200)
+                    return null;
+                return res.json();
+            };
+            return  await Promise.all([fetchAuthor(), fetchDeveloper()]);
         }
     }
 };
