@@ -16,8 +16,6 @@ type Author
 # Special Type
 type Query {
     authors: [Author!]!
-    author(id: ID!=1): Author
     books: [Book!]!
-    book(id:ID!): Book
     hello: String
 }
