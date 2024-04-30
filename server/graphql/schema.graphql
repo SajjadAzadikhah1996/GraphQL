@@ -1,18 +1,20 @@
 type Book
 {
-    id: ID
-    title: String
-    genre: String
-    publish_at: String
+    id: ID!
+    title: String!
+    genre: String!
+    publish_at: String!
 }
 
 type Author
 {
-    id: ID
-    title: String
-    age: Int
+    id: ID!
+    title: String!
+    age: Int!
 }
 
 type Query {
+    authors: [Author!]!
+    books: [Book!]!
     hello: String
 }
