@@ -14,6 +14,5 @@ const server = new ApolloServer({
     resolvers: resolvers
 });
 
-
 startStandaloneServer(server, {listen: {port: 4000},})
     .then(({url}) => console.log(`Running a GraphQL API server at ${url}`));
