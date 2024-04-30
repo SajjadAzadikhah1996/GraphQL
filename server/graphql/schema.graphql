@@ -1,3 +1,10 @@
+"""
+The `Book` is an `object` type that represents a collection of available properties and related data types.
+Related Types:
+`Author`
+Accessible parameters:
+`id`
+"""
 type Book
 {
     id: ID!
@@ -7,6 +14,13 @@ type Book
     author: Author!
 }
 
+"""
+The `Author` is an `object` type that represents a collection of available properties and related data types.
+Related Types:
+`Books`
+Accessible parameters:
+`id`
+"""
 type Author
 {
     id: ID!
