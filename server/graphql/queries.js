@@ -1,5 +1,9 @@
+import {JalaliDateScalar} from './scalars/dateTimeScalar.js';
+
 const SERVER_URL = 'http://localhost:9000';
+
 export const resolvers = {
+    JalaliDate: JalaliDateScalar,
     Query: {
         books: async () => {
             const res = await fetch(`${SERVER_URL}/books?_expand=author`);

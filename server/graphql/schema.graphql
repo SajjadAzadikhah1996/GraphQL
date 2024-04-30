@@ -1,3 +1,4 @@
+scalar JalaliDate
 """
 The `Book` is an `object` type that represents a collection of available properties and related data types.
 Related Types:
@@ -10,7 +11,7 @@ type Book
     id: ID!
     title: String!
     genre: String!
-    publish_at: String!
+    publish_at: JalaliDate!
     author: Author!
 }
 

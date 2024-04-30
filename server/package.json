@@ -13,6 +13,7 @@
     "@apollo/server": "^4.10.4",
     "@graphql-tools/graphql-file-loader": "^8.0.1",
     "@graphql-tools/load": "^8.0.2",
+    "date-fns-jalali": "^3.6.0-0",
     "graphql.macro": "^1.4.2",
     "json-server": "^0.17.4"
   },
