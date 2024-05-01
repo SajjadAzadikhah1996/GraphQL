@@ -1,6 +1,11 @@
-query BookQuery($id: ID! = 1) {
+query BookQuery($id: ID! = 1, $withAuthor: Boolean! = true) {
     book(id: $id) {
         id
         title
+        #  You can use @skip instead of @include to negate the value of a Boolean expression.
+        author @include(if: $withAuthor) {
+            id
+            title
+        }
     }
 }
