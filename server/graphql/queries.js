@@ -32,20 +32,8 @@ export const resolvers = {
             const res = await fetch(`${SERVER_URL}/authors/${args.id}?_embed=books`);
             return res.json();
         },
-        hexColor: (parent, args) => {
-            let hex = '';
-            switch (args.name) {
-                case 'RED':
-                    hex = '#00ff00';
-                    break;
-                case 'GREEN':
-                    hex = '#ff0000';
-                    break;
-                case 'BLUE':
-                    hex = '#0000ff';
-                    break;
-            }
-            return hex;
+        hexColor: (parent, {color}, context) => {
+            return color;
         },
         search: async (parent, args) => {
             const fetchAuthor = async () => {
@@ -60,7 +48,7 @@ export const resolvers = {
                     return null;
                 return res.json();
             };
-            return  await Promise.all([fetchAuthor(), fetchDeveloper()]);
+            return await Promise.all([fetchAuthor(), fetchDeveloper()]);
         }
     }
 };

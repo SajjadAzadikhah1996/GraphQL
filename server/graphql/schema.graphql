@@ -54,13 +54,18 @@ type Developer implements Human
 
 """
 The `Color` is an `enum` type that represents a list of available values.
-Accessible parameters:
-`name`
 """
 enum Color{
     RED
     GREEN
     BLUE
+}
+"""
+The `Mode` is an `enum` type that represents a list of available values.
+"""
+enum Mode{
+    LIGHT
+    DARK
 }
 
 """
@@ -68,12 +73,27 @@ The `SearchResult` is an `union` type that represents a list of possible types.
 """
 union SearchResult = Author | Developer
 
+"""
+The `ColorArgs` is an `input` type that represents a list of available arguments.
+Accessible arguments:
+`name` `mode`
+"""
+input ColorArgs {
+    name: Color
+    mode: Mode
+}
+
+type ColorType {
+    name: Color
+    mode: Mode
+}
+
 # Special Type
 type Query {
     authors: [Author!]!
     author(id: ID!=1): Author
     books: [Book!]!
     book(id:ID!): Book
-    hexColor(name: Color!): String
+    hexColor(color: ColorArgs!): ColorType
     search(id: ID!): [SearchResult]
 }
