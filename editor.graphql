@@ -1,13 +1,6 @@
-{
-    red: hexColor(color: {name: RED, mode: DARK}) {
-        ...colorFields
+query BookQuery($id: ID! = 1) {
+    book(id: $id) {
+        id
+        title
     }
-    green: hexColor(color: {name: GREEN, mode: LIGHT}) {
-        ...colorFields
-    }
-}
-
-fragment colorFields on ColorType {
-    name
-    mode
 }
