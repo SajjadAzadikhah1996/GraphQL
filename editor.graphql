@@ -1,9 +1,12 @@
 {
-    author(id: 1) {
+    author1 : author(id:1)
+    {
+        __typename
         title
-        books(index: 1) {
-            id
-            title
-        }
+    }
+    author2 : author(id:2)
+    {
+        __typename
+        title
     }
 }
