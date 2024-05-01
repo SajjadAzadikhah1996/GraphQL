@@ -50,5 +50,10 @@ export const resolvers = {
             };
             return await Promise.all([fetchAuthor(), fetchDeveloper()]);
         }
+    },
+    Author: {
+        book(author, {index}) {
+            return author.books[index];
+        }
     }
 };

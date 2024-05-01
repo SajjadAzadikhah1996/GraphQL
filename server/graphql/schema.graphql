@@ -40,6 +40,7 @@ type Author implements Human
     age: Int!
     # Extra fields.
     books: [Book!]!
+    book(index: Int): Book
 }
 
 type Developer implements Human
