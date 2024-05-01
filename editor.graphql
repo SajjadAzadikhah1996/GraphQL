@@ -1,12 +1,13 @@
 {
-    author1 : author(id:1)
-    {
-        __typename
-        title
+    red: hexColor(color: {name: RED, mode: DARK}) {
+        ...colorFields
     }
-    author2 : author(id:2)
-    {
-        __typename
-        title
+    green: hexColor(color: {name: GREEN, mode: LIGHT}) {
+        ...colorFields
     }
+}
+
+fragment colorFields on ColorType {
+    name
+    mode
 }
