@@ -39,8 +39,8 @@ type Author implements Human
     title: String!
     age: Int!
     # Extra fields.
-    books: [Book!]!
-    book(index: Int): Book
+    books(index: Int): [Book]
+#    book(index: Int): Book
 }
 
 type Developer implements Human

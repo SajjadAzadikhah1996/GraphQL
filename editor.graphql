@@ -1,8 +1,7 @@
 {
-    author(id:1)
-    {
+    author(id: 1) {
         title
-        book(index:2){
+        books(index: 1) {
             id
             title
         }

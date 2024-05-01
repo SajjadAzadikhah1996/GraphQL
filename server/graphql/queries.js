@@ -52,8 +52,10 @@ export const resolvers = {
         }
     },
     Author: {
-        book(author, {index}) {
-            return author.books[index];
+        books(author, {index}) {
+            if (index)
+                return [author.books[index]];
+            return author.books;
         }
     }
 };
